@@ -48,4 +48,47 @@
     - wstawiamy pola code i message
     - zwracamy z metody handleValidationException zbudowany error response
 
+## Part IV
+1. Chcemy teraz, żeby nasza aplikacja była zabezpieczona przed.
+2. W tym celu dodajemy do POM kolejną zależność - spring-boot-starter-security
+3. Tworzymy w pakiecie application, pakiet config
+4. Dodajemy tam klasę SecurityConfig
+5. Klasa powinna mieć adnotacje @Configuration i @EnableWebSecurity oraz powinna dziedziczyć po WebSecurityConfigurerAdapter
+6. W tej klasie powinny być metody przygotowujące użytkowników:
+```  
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication()
+                .withUser("user1")
+                .password(passwordEncoder().encode("user1Pass"))
+                .authorities("ROLE_USER");
+
+```
+
+Passwod encoder:
+
+```
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+```
     
+Metoda konfiguracyjna:
+
+```
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable()
+                .authorizeRequests()
+                .anyRequest().authenticated()
+                .and()
+                .httpBasic();
+    }
+```
+
+7. Przetestujcie w postmanie, czy teraz jest możliwość dostania się do wystawionych endpointów
+8. Rozszerzcie konfigurację, tak aby dodać zwierzaka, mógł tylko użytkownik z rolą admina.
+
+
+
