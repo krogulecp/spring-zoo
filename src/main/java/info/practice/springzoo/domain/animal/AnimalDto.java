@@ -17,7 +17,7 @@ public class AnimalDto {
     Integer weightKilos;
     boolean dangerous;
 
-    public static AnimalDto fromEntity(AnimalEntity animalEntity) {
+    static AnimalDto fromEntity(AnimalEntity animalEntity) {
         return AnimalDto.builder()
                 .id(animalEntity.getId().toString())
                 .name(animalEntity.getName())

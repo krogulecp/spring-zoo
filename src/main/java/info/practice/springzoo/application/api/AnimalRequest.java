@@ -1,7 +1,10 @@
 package info.practice.springzoo.application.api;
 
 import info.practice.springzoo.domain.animal.AnimalDto;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.Max;
@@ -11,6 +14,9 @@ import javax.validation.constraints.NotNull;
 import java.time.Instant;
 
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Validated
 public class AnimalRequest {
 

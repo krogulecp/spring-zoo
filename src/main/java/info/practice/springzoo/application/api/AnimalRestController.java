@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.net.URI;
 
 @Api
 @RestController
@@ -27,7 +28,8 @@ public class AnimalRestController {
     }
 
     @PostMapping("/animals")
-    void add(@Valid @RequestBody AnimalRequest animalRequest) {
-        animalService.addAnimal(animalRequest.toAnimalDto());
+    ResponseEntity<Void> add(@Valid @RequestBody AnimalRequest animalRequest) {
+        String animalId = animalService.addAnimal(animalRequest.toAnimalDto());
+        return ResponseEntity.created(URI.create("/animals/" + animalId)).build();
     }
 }

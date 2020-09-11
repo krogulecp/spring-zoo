@@ -5,5 +5,7 @@ import java.util.List;
 public interface AnimalDomainService {
     List<AnimalDto> listAllAnimals();
 
-    void addAnimal(AnimalDto animalDto);
+    String addAnimal(AnimalDto animalDto);
+
+    void removeAll();
 }

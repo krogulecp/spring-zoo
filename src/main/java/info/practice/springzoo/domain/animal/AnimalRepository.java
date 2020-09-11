@@ -7,4 +7,5 @@ import java.util.UUID;
 
 @Repository
 interface AnimalRepository extends JpaRepository<AnimalEntity, UUID> {
+    AnimalEntity save(AnimalDto animalDto);
 }

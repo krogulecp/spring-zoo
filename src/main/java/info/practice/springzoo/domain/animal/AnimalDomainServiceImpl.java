@@ -22,7 +22,12 @@ class AnimalDomainServiceImpl implements AnimalDomainService {
     }
 
     @Override
-    public void addAnimal(AnimalDto animalDto) {
-        //TODO
+    public String addAnimal(AnimalDto animalDto) {
+        return animalRepository.save(AnimalEntity.fromDto(animalDto)).getId().toString();
+    }
+
+    @Override
+    public void removeAll() {
+        animalRepository.deleteAll();
     }
 }

@@ -18,8 +18,12 @@ public class AnimalService {
         return animalDomainService.listAllAnimals();
     }
 
-    public void addAnimal(AnimalDto animalDto) {
-        animalDomainService.addAnimal(animalDto);
+    public String addAnimal(AnimalDto animalDto) {
+        return animalDomainService.addAnimal(animalDto);
+    }
+
+    public void removeAllAnimals() {
+        animalDomainService.removeAll();
     }
 
 }
