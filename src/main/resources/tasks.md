@@ -33,6 +33,19 @@
     - pole name nie może być ani nullowe ani puste
     - pole weight nie może być mniejsze od 0 oraz nie może być większe niż 10000kg
 
+## Part III
 
+1. Nie chcemy zwracać domyślnych błędów w przypadku walidacji, dlatego
+   tworzymy nową klasę w pakiecie api -> AnimalRestControllerExceptionHandler
+2. Adnotujemy klasę adnotacją @RestControllerAdvice
+3. Tworzymy metodę, która przechwyci błędy walidacji:
+    - nazywamy ją handleValidationException
+    - adnotujemy ją @ExceptionHandler i jako argument podajemy MethodArgumentNotValidException.class
+    - jako parametr przekazujemy exception tego samego typu co w adnotacji
+    - adnotujemy metodę @ResponseStatus i ustawiamy UnprocessableEntity
+4. Chcemy jeszcze zwrócić jakiś sensowny błąd:
+    - tworzymy klasę ErrorResponse
+    - wstawiamy pola code i message
+    - zwracamy z metody handleValidationException zbudowany error response
 
     
