@@ -2,6 +2,7 @@ package info.practice.springzoo.application.api;
 
 import info.practice.springzoo.application.AnimalService;
 import io.swagger.annotations.Api;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,10 +20,10 @@ public class AnimalRestController {
     public AnimalRestController(AnimalService animalService) {
         this.animalService = animalService;
     }
-    
+
     @GetMapping("/animals")
-    AnimalListResponse list() {
-        return AnimalListResponse.from(animalService.listAllAnimals());
+    ResponseEntity<AnimalListResponse> list() {
+        return ResponseEntity.ok(AnimalListResponse.from(animalService.listAllAnimals()));
     }
 
     @PostMapping("/animals")
