@@ -1,4 +1,6 @@
-### Tasks
+# Tasks
+
+## Part I
 
 1. Tworzymy pakiet application, a w nim pakiet api - tutaj będą dostępne wszystkie kontrolery
 2. Tworzymy pakiet domain - tutaj będą poszczególne domeny
@@ -22,5 +24,15 @@
 8. Medody powinny wywoływać odpowiednie metody z interfejsu AnimalService
 9. Medody w AnimalService powinny wywoływać odpowiednie metody za AnimalDomainService
 
-    
+## Part II
+
+1. Nie chcemy, żeby dodany zwierzak miał błędne dane, dlatego wprowadzamy walidację:
+    - przy okazji poprawiamy nazwę weight na weightKilos (w request i w DTO)
+    - przy okazji dodajemy też name do requestu i DTO
+    - pole species nie może być nullowe ani puste
+    - pole name nie może być ani nullowe ani puste
+    - pole weight nie może być mniejsze od 0 oraz nie może być większe niż 10000kg
+
+
+
     
