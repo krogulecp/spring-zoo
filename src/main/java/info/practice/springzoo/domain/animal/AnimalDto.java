@@ -7,8 +7,9 @@ import java.time.Instant;
 @Value
 public class AnimalDto {
     String id;
+    String name;
     String species;
     Instant dateOfBirth;
-    Integer weight;
-    double dangerous;
+    Integer weightKilos;
+    boolean dangerous;
 }

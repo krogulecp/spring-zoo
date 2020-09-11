@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 public class AnimalRestController {
     private final AnimalService animalService;
@@ -20,7 +22,7 @@ public class AnimalRestController {
     }
 
     @PostMapping("/animals")
-    void add(@RequestBody AnimalRequest animalRequest) {
+    void add(@Valid @RequestBody AnimalRequest animalRequest) {
         animalService.addAnimal(animalRequest.toAnimalDto());
     }
 }
