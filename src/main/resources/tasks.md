@@ -128,4 +128,18 @@ public Docket api() {
 10. Ale teraz jest jeszcze problem z widocznością większej ilości kontrolerów niż chcemy
 11. Skonfigurujemy swaggera tak, żebyśmy widzieli tylko nasz kontroler
 
+# Testing
+
+## Part VII
+1. Napiszmy test, sprawdzający, czy aplikacja się nam uruchamia
+2. Czy takiego testu już nie ma w aplikacji?
+
+## Part VIII
+1. Napiszmy test wyciągnięcia wszystkich zwierzaków - zacznijmy od integracyjnego testu kontrolera
+2. Napiszmy test dla sytuacji, gdzie nie ma żadnego zwierzaka (zwracanie wszystkich)
+3. Powinniśmy zweryfikować, czy dostaniemy pustą listę zwierzaków
+4. Test nie przechodzi ? Naprawmy go.
+
+
+
 
