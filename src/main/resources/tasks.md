@@ -97,5 +97,35 @@ Metoda konfiguracyjna:
 3. Przetestujcie w postmanie działanie andpointu /actuator/health
 4. Jak zauważyliście, nie działa - dodajcie zatem konfigurację security, aby endpoint zadziałał
 
+## Part VI
+
+1. W pewnych sytuacjach, kiedy budujemy API, dobrze jest mieć i dać możliwość jego łatwego przetestowania
+2. Zaimplementujemy w tym celu swaggera
+3. Dodajemy zależność:
+```
+<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-boot-starter</artifactId>
+    <version>3.0.0</version>
+</dependency>
+``` 
+4. Następnie w pakiecie application.config dodajemy klasę SwaggerConfig z adnotacjami @Configuration i @EnableSwagger2
+5. Dodajemy metodę:
+```
+@Bean
+public Docket api() {
+    return new Docket(DocumentationType.SWAGGER_2)
+            .select()
+            .apis(RequestHandlerSelectors.any())
+            .paths(PathSelectors.any())
+            .build();
+}
+```
+6. Wchodzimy na ścieżkę /swagger-ui
+7. Czy jest jakiś problem ?
+8. Musimy zaktualizować security i dodać kolejne ścieżki do ignorowanych "/swagger-ui/**", "/swagger-resources/**", "/v2/api-docs", "/webjars/**"
+9. Wchodzimy jeszcze raz na powyższy endpoint i testujemy
+10. Ale teraz jest jeszcze problem z widocznością większej ilości kontrolerów niż chcemy
+11. Skonfigurujemy swaggera tak, żebyśmy widzieli tylko nasz kontroler
 
 
