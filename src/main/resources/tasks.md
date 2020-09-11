@@ -140,6 +140,16 @@ public Docket api() {
 3. Powinniśmy zweryfikować, czy dostaniemy pustą listę zwierzaków
 4. Test nie przechodzi ? Naprawmy go.
 
+## Part IX
+1. Napiszmy teraz test dla wyciągnięcia wszystkich zwierzaków kiedy są w repo
+2. W tym celu powinniśmy zaimplementować po pierwsze metodę add:
+    - repozytorim oraz encja w domain.animal powinny mieć dostęp pakietowy
+    - możemy dodać zwierzaki z poziomu AnimalService, tylko za pośrednictwem metody addAnimal
+3. Przetestujmy też metodę add z kontrolera przy okazji
+
+
+
+
 
 
 
