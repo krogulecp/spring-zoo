@@ -90,5 +90,12 @@ Metoda konfiguracyjna:
 7. Przetestujcie w postmanie, czy teraz jest możliwość dostania się do wystawionych endpointów
 8. Rozszerzcie konfigurację, tak aby dodać zwierzaka, mógł tylko użytkownik z rolą admina.
 
+## Part V
+
+1. Dodajmy do naszej aplikacji actuatora
+2. W tym celu należy dodać zależność spring-boot-starter-actuator
+3. Przetestujcie w postmanie działanie andpointu /actuator/health
+4. Jak zauważyliście, nie działa - dodajcie zatem konfigurację security, aby endpoint zadziałał
+
 
 
