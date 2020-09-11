@@ -147,6 +147,16 @@ public Docket api() {
     - możemy dodać zwierzaki z poziomu AnimalService, tylko za pośrednictwem metody addAnimal
 3. Przetestujmy też metodę add z kontrolera przy okazji
 
+## Part X
+1. Zmieniają się nam teraz wymagania - nie możemy dodać zwierzaka, jeśli nie mamy wolnej klatki
+2. W celu obsługi dodajmy nową domenę - cage
+3. Dodajmy interfejs CageDomainService wraz z dummy implementacją
+4. Zmieniamy implementację addAnimal w AnimalService
+5. Spróbujmy teraz przetestować metodę add w serwisie, ale nie integracyjnie, tylko jednostkowo
+6. W tym celu użyjemy mockito i zamokujemy serwisy domenowe
+7. Napiszmy teraz dwa testy:
+    - kiedy serwisy domenowe zwracają poprawny wynik
+    - kiedy jeden z serwisów rzuca wyjątek
 
 
 
