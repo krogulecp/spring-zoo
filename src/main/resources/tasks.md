@@ -141,6 +141,21 @@ public Docket api() {
 4. Test nie przechodzi ? Naprawmy go.
 
 ## Part IX
+- dodajemy do POMa spring-boot-starter-data-jpa
+- dodajemy do POMa H2 database
+- wrzucamy do animal -> repozytorium oraz klasę AnimalEntity
+- wstrzykujemy repozytorium do AnimalDomainService
+- implementujemy metodę wyciągającą
+- weryfikujemy ponownie test
+
+
+- napiszmy test AnimalDomainServiceImpl
+- niech test sprawdzi działanie metody listAllAninals
+- przy realizacji musimy wykorzystać mockito, żeby zamokować AnimalRepository
+- nie wykorzystjemy springa
+- mocka tworzy się poprzez Mockito.mock(xxx.class)
+- zamokowanie działania mocka -> Mockito.when(waszMock.metoda()).thenReturn(odpowiedź)
+
 1. Napiszmy teraz test dla wyciągnięcia wszystkich zwierzaków kiedy są w repo
 2. W tym celu powinniśmy zaimplementować po pierwsze metodę add:
     - repozytorim oraz encja w domain.animal powinny mieć dostęp pakietowy
@@ -158,8 +173,15 @@ public Docket api() {
     - kiedy serwisy domenowe zwracają poprawny wynik
     - kiedy jeden z serwisów rzuca wyjątek
 
-
-
+## Part XI
+1. Teraz spróbujemy napisać jeszcze testy, czy nasze walidatory działają.
+2. W tym celu napiszmy sparametryzowane testy kontrolera, z wykorzystaniem TestRestTemplate.
+3. Testy powinny sprawdzić przypadki, gdzie mamy:
+    - zbyt małą wagę
+    - zbyt dużą wagę
+    - wartości brzegowe wagi
+    - poprawność zachowania przy pustym name
+    - poprawność zachowania przy pustym species
 
 
 
