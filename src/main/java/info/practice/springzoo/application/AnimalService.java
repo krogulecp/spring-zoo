@@ -22,7 +22,6 @@ public class AnimalService {
     }
 
     public String addAnimal(AnimalDto animalDto) {
-        cageDomainService.lockAnimal(animalDto);
         return animalDomainService.addAnimal(animalDto);
     }
 
