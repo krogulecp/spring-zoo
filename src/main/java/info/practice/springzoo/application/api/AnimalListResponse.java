@@ -1,11 +1,15 @@
 package info.practice.springzoo.application.api;
 
 import info.practice.springzoo.domain.animal.AnimalDto;
-import lombok.Value;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Value
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class AnimalListResponse {
 
     List<AnimalDto> animals;

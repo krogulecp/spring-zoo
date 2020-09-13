@@ -6,6 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -16,7 +17,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class AnimalRestControllerTest {
 
     @Autowired
@@ -24,6 +25,9 @@ class AnimalRestControllerTest {
 
     @Autowired
     private AnimalService animalService;
+
+    @Autowired
+    private TestRestTemplate testRestTemplate;
 
     @AfterEach
     void tearDown() {
@@ -42,6 +46,18 @@ class AnimalRestControllerTest {
         assertNotNull(response.getBody());
         assertNotNull(response.getBody().getAnimals());
         assertEquals(response.getBody().getAnimals().size(), 0);
+    }
+
+    @Test
+    void shouldReturnAnimalsWhenCallingEndpoint() {
+
+        //when
+        ResponseEntity<AnimalListResponse> response = testRestTemplate
+                .withBasicAuth("user1", "user1Pass")
+                .getForEntity("/zoo/animals", AnimalListResponse.class);
+
+        //then
+        assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
     @Test
